@@ -10,5 +10,5 @@ stack_t *stack = NULL;
 
 if (arguments->tokencnt == 0)
 	return;
-arguments->instruction->f(arguments->line_number);
+arguments->instruction->f(&stack, arguments->line_number);
 }

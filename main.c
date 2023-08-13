@@ -22,8 +22,8 @@ while (getline(&arguments->command, &n, arguments->content) != -1)
 {
 arguments->line_number += 1;
 tokenize_command();
-get_opcodefunc();
-run_opcodefunc();
+get_instruction();
+run_instruction();
 free_tokens();
 }
 

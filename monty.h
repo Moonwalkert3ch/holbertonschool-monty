@@ -57,7 +57,7 @@ typedef struct arg_s
 	unsigned int line_number;
 	char **tokens;
 	int tokencnt;
-	instruction_t *opcodefunc;
+	instruction_t *instruction;
 	stack_t *head;
 	int stack_len;
 } arg_t;

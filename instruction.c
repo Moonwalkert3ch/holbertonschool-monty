@@ -24,10 +24,10 @@ instruction_t opcodefunc[] = {
 };
 if (arguments->tokencnt == 0)
 	return;
-for (tokens[0]; opcodefunc[i].opcode != NULL; i++)
+for (; opcodefunc[i].opcode != NULL; i++)
 if (strcmp(opcodefunc[i].opcode, arguments->tokens[0]) == 0)
 {
-argument->instruction->opcode = opcodefunc[i].opcode;
+arguments->instruction->opcode = opcodefunc[i].opcode;
 arguments->instruction->f = opcodefunc[i].f;
 return;
 }
