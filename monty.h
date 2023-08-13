@@ -68,7 +68,7 @@ extern arg_t *arguments;
 
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
-
+void pint(stack_t **stack, unsigned int line_number);
 
 
 int dprintf(int fd, const char *format, ...);
