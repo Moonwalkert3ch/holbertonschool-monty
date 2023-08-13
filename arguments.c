@@ -33,4 +33,5 @@ arguments->command = NULL;
 arguments->tokencnt = 0;
 arguments->line_number = 0;
 arguments->stack_len = 0;
+arguments->stack = 1;
 }
