@@ -5,7 +5,6 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stddef.h>
-#include <fcntl.h>
 #include <unistd.h>
 
 /**
@@ -14,6 +13,7 @@
  * @prev: points to the previous element of the stack (or queue)
  * @next: points to the next element of the stack (or queue)
  * Description: doubly linked list node structure
+ * for stack, queues, LIFO, FIFO
 */
 typedef struct stack_s
 {
@@ -43,7 +43,7 @@ typedef struct instruction_s
  * @line_number: for tracking current line number
  * @tokens: used to store tokens from line
  * @opcodefunc: a valid opcode from a line
- * @n_tokens; number of tokens created from line
+ * @tokencnt: number of tokens created from line
  * @head: head/top of the stack (doubly linked lists of struct stack_s)
  * @stack_len: tracks the number of nodes in the stack
  * Description: hold variables that will be used
@@ -56,7 +56,7 @@ typedef struct arg_s
 	char *command;
 	unsigned int line_number;
 	char **tokens;
-	int n_tokens;
+	int tokencnt;
 	instruction_t *opcodefunc;
 	stack_t *head;
 	int stack_len;
@@ -65,12 +65,8 @@ typedef struct arg_s
 extern arg_t *arguments;
 
 void push(stack_t **stack, unsigned int line_number);
-void pop(stack_t **stack, unsigned int line_number);
-void pint(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
-void swap(stack_t **stack, unsigned int line_number);
-void add(stack_t **stack, unsigned int line_number);
-void nop(stack_t **stack, unsigned int line_number);
+
 
 
 int dprintf(int fd, const char *format, ...);
@@ -81,15 +77,14 @@ void malloc_failed(void);
 void check_arguments(int argc);
 void get_content(char *fileName);
 void close_content(void);
-void free_arguments();
-void activate_arguments();
+void free_arguments(void);
+void set_arguments(void);
 int check_num(char *str);
-void free_all_args(void);
+void free_all_arguments(void);
 void delete_stack_node(void);
-void parse(void);
+void tokenize_command(void);
 void free_tokens(void);
-void run_opcodefunc(void);
-void get_opcodefunc(void);
-void free_stack(stack_t *head);
+void run_instruction(void);
+void get_instruction(void);
 
 #endif
