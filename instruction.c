@@ -21,7 +21,8 @@ void get_instruction(void)
 int i = 0;
 instruction_t opcodefunc[] = {
 	{"push", &push}, {"pall", &pall},
-	{"pint", &pint}, {NULL, NULL}
+	{"pint", &pint}, {"pop", &pop}, 
+       	{NULL, NULL}
 };
 if (arguments->tokencnt == 0)
 	return;
