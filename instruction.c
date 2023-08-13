@@ -13,18 +13,20 @@ exit(EXIT_FAILURE);
 }
 
 /**
- * get_instruction - sets the instruction based on first token of command
+ * get_instruction - sets the instruction based on first token in command
 */
+
 void get_instruction(void)
 {
 int i = 0;
 instruction_t opcodefunc[] = {
-	{push, &push}, {pall, &pall},
+	{"push", &push}, {"pall", &pall},
 	{NULL, NULL}
 };
 if (arguments->tokencnt == 0)
 	return;
 for (; opcodefunc[i].opcode != NULL; i++)
+{
 if (strcmp(opcodefunc[i].opcode, arguments->tokens[0]) == 0)
 {
 arguments->instruction->opcode = opcodefunc[i].opcode;
@@ -33,4 +35,16 @@ return;
 }
 }
 invalid_instruction();
+}
+/**
+ * run_instruction - runs instructions
+*/
+
+void run_instruction(void)
+{
+stack_t *stack = NULL;
+
+if (arguments->tokencnt == 0)
+	return;
+arguments->instruction->f(&stack, arguments->line_number);
 }

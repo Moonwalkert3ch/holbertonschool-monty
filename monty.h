@@ -5,6 +5,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stddef.h>
+#include <fcntl.h>
 #include <unistd.h>
 
 /**
@@ -60,6 +61,7 @@ typedef struct arg_s
 	instruction_t *instruction;
 	stack_t *head;
 	int stack_len;
+	int stack;
 } arg_t;
 
 extern arg_t *arguments;
@@ -86,5 +88,5 @@ void tokenize_command(void);
 void free_tokens(void);
 void run_instruction(void);
 void get_instruction(void);
-
+void free_stack(stack_t *head);
 #endif

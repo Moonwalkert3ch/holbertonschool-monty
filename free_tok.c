@@ -13,7 +13,7 @@ if (arguments->tokens == NULL)
 
 while (arguments->tokens[i])
 {
-free(arguments->tokens[i])
+free(arguments->tokens[i]);
 	i++;
 }
 free(arguments->tokens);
