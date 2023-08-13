@@ -23,7 +23,7 @@ instruction_t opcodefunc[] = {
 	{"push", &push}, {"pall", &pall},
 	{"pint", &pint}, {"pop", &pop}, 
        	{"swap", &swap}, {"add", &add}, 
-	{NULL, NULL}
+	{"nop", &nop}, {NULL, NULL}
 };
 if (arguments->tokencnt == 0)
 	return;
