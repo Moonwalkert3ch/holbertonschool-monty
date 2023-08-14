@@ -43,7 +43,7 @@ typedef struct instruction_s
  * @command: string which will be the line of text read from stream
  * @line_number: for tracking current line number
  * @tokens: used to store tokens from line
- * @opcodefunc: a valid opcode from a line
+ * @instruction: a valid opcode from a line
  * @tokencnt: number of tokens created from line
  * @head: head/top of the stack (doubly linked lists of struct stack_s)
  * @stack_len: tracks the number of nodes in the stack
@@ -73,7 +73,6 @@ void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
-
 
 int dprintf(int fd, const char *format, ...);
 ssize_t getline(char **commandptr, size_t *n, FILE *content);
