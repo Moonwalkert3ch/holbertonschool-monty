@@ -22,3 +22,27 @@ The prototypes of all your functions should be included in your header file call
 Don’t forget to push your header file
 All your header files should be include guarded
 You are expected to do the tasks in the order shown in the project
+
+## Compilation
+The files are to be compiled this way:
+
+$ gcc -Wall -Werror -Wextra -pedantic *.c -o monty
+How to use
+compile files
+$ ./monty monty_byte_code_file_name.m
+A few Monty bytecode files are supplied in the byecodes directory. For supported opcodes, look below.
+
+## Example of usage
+$ cat bytecodes/12.m
+push 1
+push 2
+push 3
+pall
+add
+pall
+$ ./monty bytecodes/12.m
+3
+2
+1
+5
+1
